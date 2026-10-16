@@ -1,0 +1,80 @@
+# ==========================================
+# Python Virtual Environments
+# ==========================================
+venv/
+.venv/
+env/
+ENV/
+
+# ==========================================
+# Python Cache and Compiled Files
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# Environment Variables and Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ==========================================
+# TED Talks Datasets
+# Keep datasets local until redistribution
+# permissions and licensing are verified.
+# ==========================================
+data/ted_main.csv
+data/transcripts.csv
+
+# ==========================================
+# Jupyter Notebook Checkpoints
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# Jupyter Temporary Files
+# ==========================================
+*.ipynb_checkpoints
+
+# ==========================================
+# VS Code and Other IDE Files
+# ==========================================
+.vscode/
+.idea/
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Logs and Temporary Files
+# ==========================================
+*.log
+*.tmp
+*.temp
+
+# ==========================================
+# Testing and Coverage Artifacts
+# ==========================================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# Build Artifacts
+# ==========================================
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# Local Python Environment Configuration
+# ==========================================
+.python-version
