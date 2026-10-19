@@ -1,25 +1,28 @@
 # 🎯 Personalized TED Talks Recommendation System Using Machine Learning
 
-A machine learning-based recommendation system developed as part of the **Infosys Springboard Virtual Internship 7.0**.
+A machine learning-based recommendation system being developed as part of the **Infosys Springboard Virtual Internship 7.0**.
 
-The project aims to help users discover relevant TED Talks based on their interests by analyzing talk metadata, tags, and transcript content.
+The project aims to help users discover relevant TED Talks based on their interests by analyzing talk metadata, tags, descriptions, and transcript content.
 
 ## 📌 Project Overview
 
-TED Talks cover a wide range of subjects, including technology, science, education, psychology, business, and personal development. With thousands of talks available, discovering content relevant to individual interests can be challenging.
+TED Talks cover a wide range of subjects, including technology, science, education, psychology, business, and personal development. With thousands of talks available, finding content relevant to individual interests can be challenging.
 
-This project aims to develop a personalized recommendation system that analyzes TED Talk content and, where suitable interaction data is available, user preferences to generate relevant recommendations.
+This project aims to develop a recommendation system that analyzes TED Talk content and recommends relevant talks based on content similarity and user interests.
 
-The system will explore content-based filtering and, where the available data supports it, collaborative or hybrid recommendation techniques. The final recommendation engine will be integrated into an interactive web application using Streamlit.
+The project will explore content-based filtering using text processing, feature engineering, and similarity calculations. Collaborative or hybrid approaches may also be investigated if suitable user–item interaction data is available.
+
+The final recommendation engine will be integrated into an interactive web application using Streamlit.
 
 ## 🎯 Project Objectives
 
 - Collect and understand TED Talks metadata and transcripts.
-- Perform exploratory data analysis (EDA) and data preprocessing.
-- Clean and prepare textual and categorical features.
+- Perform exploratory data analysis (EDA).
+- Identify missing values, duplicates, and data inconsistencies.
+- Clean and preprocess textual and categorical features.
 - Apply feature engineering and text vectorization techniques.
 - Develop a suitable recommendation engine.
-- Evaluate recommendation quality using appropriate evaluation metrics.
+- Evaluate recommendation quality using appropriate metrics.
 - Build an interactive Streamlit application.
 - Document the implementation, evaluation, and deployment process.
 
@@ -27,13 +30,13 @@ The system will explore content-based filtering and, where the available data su
 
 - **TED Talks Exploration:** Explore talks using available metadata, topics, tags, and speaker information.
 - **Content-Based Recommendations:** Recommend talks based on similarities in their textual content and metadata.
-- **Personalized Discovery:** Support interest-based recommendations through suitable user inputs.
-- **Recommendation Evaluation:** Evaluate the recommendation engine using appropriate metrics.
+- **Personalized Discovery:** Help users discover talks relevant to their interests.
+- **Recommendation Evaluation:** Evaluate the recommendation engine using suitable metrics.
 - **Interactive Web Interface:** Present recommendations through a user-friendly Streamlit application.
-- **Explainable Recommendations:** Where feasible, explain why a talk was recommended.
+- **Explainable Recommendations:** Where feasible, explain why a particular talk was recommended.
 - **Documentation:** Provide implementation details, evaluation results, and setup instructions.
 
-These are planned capabilities. Features will be marked as implemented as development progresses.
+These are planned capabilities. Features will be marked as implemented only after development and testing.
 
 ## 🛠️ Technology Stack
 
@@ -44,7 +47,7 @@ These are planned capabilities. Features will be marked as implemented as develo
 | NumPy | Numerical operations |
 | Matplotlib | Data visualization |
 | Seaborn | Statistical visualization |
-| Scikit-learn | Preprocessing, vectorization, similarity calculations, and model evaluation |
+| Scikit-learn | Preprocessing, vectorization, similarity calculations, and evaluation |
 | Jupyter Notebook | Exploratory data analysis and experimentation |
 | Streamlit | Interactive web application |
 | Git | Version control |
@@ -55,22 +58,23 @@ The final dependencies will be documented in `requirements.txt` as implementatio
 
 ## 🧠 Recommendation Approach
 
-The project will investigate the following approaches.
+The final recommendation strategy will be selected based on data availability, implementation feasibility, and evaluation results.
 
 ### 1. Content-Based Filtering
 
-Analyze talk metadata, tags, and transcript content to identify talks similar to a user's selected interests or previously liked talks.
+Content-based filtering will use information about TED Talks to identify talks similar to a user's interests or a selected talk.
 
 Potential techniques include:
 
+- Text preprocessing and normalization
 - TF-IDF vectorization
 - Cosine similarity
-- Text preprocessing
 - Metadata-based feature engineering
+- Text embeddings, if appropriate
 
 ### 2. Collaborative Filtering
 
-Investigate collaborative filtering if suitable user–item interaction data, such as ratings or watch history, is available.
+Collaborative filtering may be investigated if suitable user–item interaction data, such as ratings or viewing history, is available.
 
 The availability and quality of such data will determine whether this approach can be implemented meaningfully.
 
@@ -78,7 +82,7 @@ The availability and quality of such data will determine whether this approach c
 
 A hybrid approach may combine content-based and collaborative signals if the available data supports both.
 
-The final recommendation strategy will be selected based on data availability, recommendation quality, and evaluation results.
+The project will prioritize a practical recommendation approach that can be implemented and evaluated reliably.
 
 ## 📂 Project Structure
 
@@ -94,18 +98,50 @@ ted-talks-recommender/
 └── requirements.txt
 ```
 
-**Note:** `requirements.txt` and the implementation files will be added as development progresses. The dataset files shown above are stored locally and are not currently included in the Git repository.
+**Note:**
+- The `data/` directory contains the datasets stored locally on the development machine.
+- The CSV datasets and Python virtual environment are excluded from Git version control.
+- The `notebooks/` and `src/` directories will contain analysis notebooks and implementation code as development progresses.
+- `requirements.txt` will be created and maintained as project dependencies are finalized.
+
+The structure will evolve as the project develops.
 
 ## 📊 Dataset
 
-The project currently uses two CSV files:
+The project currently uses two CSV files obtained through Kaggle.
 
-- `ted_main.csv` — TED Talks metadata.
-- `transcripts.csv` — TED Talks transcript data.
+### 1. `ted_main.csv`
 
-The files were obtained through Kaggle.
+Contains TED Talks metadata, including available information such as:
 
-Before distributing these datasets, their original sources and licensing conditions must be verified. The CSV files are therefore excluded from version control.
+- Talk titles
+- Speakers and speaker occupations
+- Descriptions
+- Tags
+- Other talk-related metadata
+
+### 2. `transcripts.csv`
+
+Contains transcript text associated with TED Talks.
+
+The metadata and transcript datasets will be examined to understand their structure and determine how records correspond to one another.
+
+### Data Collection and Initial Analysis
+
+The datasets have been obtained and loaded for initial exploration.
+
+Initial analysis has included:
+- Examining frequently occurring TED Talk tags.
+- Checking missing values in selected metadata columns.
+- Beginning to understand the available data fields.
+
+The next steps include further exploratory data analysis, data-quality checks, and preprocessing.
+
+### Dataset Licensing
+
+The datasets are stored locally and are excluded from the Git repository.
+
+Their original sources, attribution requirements, and redistribution conditions must be verified before distributing the files.
 
 Dataset download instructions and source attribution will be documented after verification.
 
@@ -145,7 +181,7 @@ python -m venv venv
 
 ### 5. Install Dependencies
 
-Once `requirements.txt` has been created and finalized, install the project dependencies using:
+Once `requirements.txt` has been created and populated, install the dependencies using:
 
 ```powershell
 python -m pip install -r requirements.txt
@@ -153,11 +189,11 @@ python -m pip install -r requirements.txt
 
 ### 6. Prepare the Dataset
 
-Obtain the required dataset files from the verified source and place them in the local `data/` directory.
+Obtain the required datasets from the verified source and place them in the local `data/` directory.
 
 Ensure that the filenames match those expected by the project code.
 
-**Important:** The dataset files are not downloaded automatically when cloning this repository.
+**Important:** The datasets are not downloaded automatically when cloning the repository. They are excluded from version control and must be obtained separately.
 
 ## 🗺️ Implementation Roadmap
 
@@ -165,28 +201,36 @@ The project follows the four milestones specified in the internship project docu
 
 ### Milestone 1 — Data Collection and Exploration
 
+- [x] Obtain the initial TED Talks metadata and transcript datasets.
+- [x] Load the datasets for initial analysis.
+- [x] Explore frequently occurring TED Talk tags.
+- [x] Check missing values in selected metadata columns.
 - [ ] Verify dataset sources and licensing.
-- [ ] Inspect dataset structure and data types.
-- [ ] Analyze missing values and inconsistencies.
-- [ ] Perform exploratory data analysis.
-- [ ] Preprocess transcripts, tags, and metadata.
-- [ ] Generate initial visualizations and summary statistics.
+- [ ] Complete dataset structure and data-type inspection.
+- [ ] Investigate duplicate records and data inconsistencies.
+- [ ] Examine the relationship between metadata and transcripts.
+- [ ] Complete exploratory data analysis.
+- [ ] Clean and preprocess the relevant data.
+- [ ] Generate useful visualizations and summary statistics.
 
 ### Milestone 2 — Feature Engineering and Recommendation Engine
 
-- [ ] Select and document text vectorization techniques.
+- [ ] Select suitable text preprocessing techniques.
+- [ ] Prepare and combine relevant textual and metadata features.
+- [ ] Select and implement text vectorization techniques.
 - [ ] Generate numerical representations of talk content.
 - [ ] Calculate content similarity scores.
+- [ ] Implement the content-based recommendation engine.
 - [ ] Investigate collaborative filtering if suitable interaction data is available.
-- [ ] Develop and compare suitable recommendation strategies.
+- [ ] Compare feasible recommendation strategies.
 - [ ] Document model design and implementation decisions.
 
 ### Milestone 3 — Evaluation
 
 - [ ] Define an appropriate evaluation strategy.
-- [ ] Evaluate recommendations using suitable metrics.
+- [ ] Evaluate recommendation quality using suitable metrics.
 - [ ] Investigate Precision, Recall, NDCG, and Mean Average Precision where applicable.
-- [ ] Compare recommendation approaches.
+- [ ] Compare recommendation approaches where feasible.
 - [ ] Document evaluation results and model selection.
 
 ### Milestone 4 — Deployment and Documentation
@@ -201,21 +245,39 @@ The project follows the four milestones specified in the internship project docu
 
 ## 📈 Current Progress
 
+### Completed
+
 - [x] Created the local project directory.
 - [x] Created the Python virtual environment.
 - [x] Installed and verified the initial Python libraries.
-- [x] Obtained the TED Talks dataset.
+- [x] Obtained the TED Talks metadata and transcript datasets.
 - [x] Created the `data/`, `notebooks/`, and `src/` directories.
+- [x] Loaded the datasets for initial exploration.
+- [x] Identified frequently occurring TED Talk tags.
+- [x] Checked missing values in selected metadata columns.
 - [x] Initialized the local Git repository.
-- [x] Configured `.gitignore`.
+- [x] Created and configured `.gitignore`.
 - [x] Created the initial project README.
-- [ ] Verify dataset licensing and document download instructions.
-- [ ] Complete dataset inspection and exploratory data analysis.
-- [ ] Implement the recommendation engine.
-- [ ] Evaluate recommendation quality.
-- [ ] Deploy the Streamlit application.
+- [x] Connected the local repository to GitHub.
+- [x] Created the initial commit and pushed it to the `main` branch.
 
-Progress will be updated as each component is implemented and verified.
+### In Progress
+
+- [ ] Continue exploratory data analysis.
+- [ ] Inspect dataset columns, data types, and distributions.
+- [ ] Investigate missing values and duplicate records.
+- [ ] Examine the relationship between talk metadata and transcripts.
+- [ ] Verify dataset licensing and document source attribution.
+- [ ] Clean and preprocess the data.
+
+### Upcoming
+
+- [ ] Prepare features for the recommendation engine.
+- [ ] Implement and evaluate the recommendation approach.
+- [ ] Develop the Streamlit application.
+- [ ] Complete testing and project documentation.
+
+Progress will be updated as tasks are completed and verified.
 
 ## 🎓 Internship Information
 
